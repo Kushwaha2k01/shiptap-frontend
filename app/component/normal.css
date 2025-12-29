@@ -1,0 +1,95 @@
+/* normal.css - Black background, white text, red accent animations */
+.normal-section {
+  background: #000;
+  color: #fff;
+  padding: 64px 20px;
+}
+
+.normal-container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 60px;
+  align-items: center;
+}
+
+.stat {
+  text-align: center;
+  position: relative;
+}
+
+.icon-wrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  z-index: 3;
+}
+
+.icon svg {
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: #ff3b3b; /* red icon stroke */
+  stroke-width: 1.4;
+}
+
+.pulse {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 59, 59, 0.08);
+  z-index: 1;
+  animation: pulse-red 2s infinite ease-out;
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  70% { transform: scale(1.35); opacity: 0.0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.number {
+  font-size: 34px;
+  font-weight: 800;
+  color: #fff;
+  transition: color 260ms ease, transform 260ms ease;
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #ddd;
+}
+
+.stat:hover .number {
+  color: #ff3b3b;
+  transform: translateY(-6px);
+}
+
+/* small floating effect on numbers */
+@keyframes float-red {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.number { animation: float-red 6s ease-in-out infinite; }
+
+/* Responsive */
+@media (max-width: 768px){
+  .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+  .normal-section { padding: 40px 16px; }
+  .number { font-size: 28px; }
+}

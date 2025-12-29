@@ -1,0 +1,127 @@
+/* Benefits section - dark theme with red accents */
+.benefits-section {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px;
+}
+
+.benefits-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* header */
+.benefits-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.benefits-main-title {
+  margin: 0 0 6px 0;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.benefits-subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+}
+
+.benefit-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  padding: 22px;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(229,57,53,0.12), 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.icon-col {
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: #e53935; /* red for effect */
+  background: rgba(229,57,53,0.08);
+  border-radius: 8px;
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.pulse {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  top: 0;
+  left: 0;
+  background: rgba(229,57,53,0.04);
+  z-index: 0;
+  transition: transform 420ms ease, opacity 420ms ease;
+}
+
+.benefit-card:hover .pulse {
+  transform: scale(1.08);
+  opacity: 1;
+  box-shadow: 0 0 22px rgba(229,57,53,0.16);
+}
+
+.benefit-title {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.benefit-desc {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* subtle animated red glow */
+@keyframes redPulse {
+  0% { box-shadow: 0 0 0 rgba(229,57,53,0.08); }
+  50% { box-shadow: 0 0 18px rgba(229,57,53,0.16); }
+  100% { box-shadow: 0 0 0 rgba(229,57,53,0.08); }
+}
+
+.icon-col:hover .icon {
+  animation: redPulse 1.2s infinite ease-in-out;
+}
+
+.benefits-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 290px;
+  opacity: 0.7;
+}
