@@ -134,7 +134,13 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 767px) {
+  .home-section {
+    padding: 1rem;
+    min-height: 70vh;
+  }
+
   .home-section h1 {
     font-size: 2.5rem;
   }
@@ -166,5 +172,148 @@
 
   .launch-date {
     font-size: 1rem;
+  }
+
+  .home-section button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Tablet/iPad */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-section {
+    padding: 1.5rem;
+    min-height: 75vh;
+  }
+
+  .home-section h1 {
+    font-size: 2.8rem;
+  }
+
+  .home-section h2 {
+    font-size: 2rem;
+  }
+
+  .home-section p {
+    font-size: 1.1rem;
+  }
+
+  .timer-display {
+    gap: 0.8rem;
+  }
+
+  .time-unit {
+    min-width: 65px;
+    padding: 0.5rem 1rem;
+  }
+
+  .time-value {
+    font-size: 1.8rem;
+  }
+
+  .time-label {
+    font-size: 0.75rem;
+  }
+
+  .launch-date {
+    font-size: 1.05rem;
+  }
+
+  .home-section button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .home-section {
+    padding: 2rem;
+    min-height: 80vh;
+  }
+
+  .home-section h1 {
+    font-size: 3rem;
+  }
+
+  .home-section h2 {
+    font-size: 2rem;
+  }
+
+  .home-section p {
+    font-size: 1.2rem;
+  }
+
+  .timer-display {
+    gap: 1rem;
+  }
+
+  .time-unit {
+    min-width: 70px;
+    padding: 0.5rem 1rem;
+  }
+
+  .time-value {
+    font-size: 2rem;
+  }
+
+  .time-label {
+    font-size: 0.8rem;
+  }
+
+  .launch-date {
+    font-size: 1.1rem;
+  }
+
+  .home-section button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .home-section {
+    padding: 3rem;
+    min-height: 85vh;
+  }
+
+  .home-section h1 {
+    font-size: 3.5rem;
+  }
+
+  .home-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .home-section p {
+    font-size: 1.3rem;
+  }
+
+  .timer-display {
+    gap: 1.2rem;
+  }
+
+  .time-unit {
+    min-width: 80px;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .time-value {
+    font-size: 2.2rem;
+  }
+
+  .time-label {
+    font-size: 0.85rem;
+  }
+
+  .launch-date {
+    font-size: 1.15rem;
+  }
+
+  .home-section button {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
   }
 }

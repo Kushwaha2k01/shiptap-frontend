@@ -52,7 +52,13 @@
   height: 250px;
 }
 
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 767px) {
+  .about-section {
+    padding: 1rem;
+    min-height: 50vh;
+  }
+
   .about-section h2 {
     font-size: 2rem;
   }
@@ -61,8 +67,102 @@
     font-size: 1rem;
   }
 
+  .about-section button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
   .about-image {
+    position: static;
     width: 120px;
     height: 120px;
+    margin: 2rem auto 0;
+  }
+}
+
+/* Tablet/iPad */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-section {
+    padding: 1.5rem;
+    min-height: 55vh;
+  }
+
+  .about-section h2 {
+    font-size: 2.3rem;
+  }
+
+  .about-section p {
+    font-size: 1.1rem;
+  }
+
+  .about-section button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .about-image {
+    position: absolute;
+    bottom: 100px;
+    right: 200px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .about-section {
+    padding: 2rem;
+    min-height: 60vh;
+  }
+
+  .about-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .about-section p {
+    font-size: 1.2rem;
+  }
+
+  .about-section button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .about-image {
+    position: absolute;
+    bottom: 120px;
+    right: 250px;
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .about-section {
+    padding: 3rem;
+    min-height: 65vh;
+  }
+
+  .about-section h2 {
+    font-size: 2.8rem;
+  }
+
+  .about-section p {
+    font-size: 1.3rem;
+  }
+
+  .about-section button {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+  }
+
+  .about-image {
+    position: absolute;
+    bottom: 140px;
+    right: 350px;
+    width: 280px;
+    height: 280px;
   }
 }

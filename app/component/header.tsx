@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import logo from "../image/logo.png";
 import "./header.css";
 
@@ -11,6 +14,16 @@ const scrollToSection = (sectionId: string) => {
 };
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="header-container">
       <div className="header-content">
@@ -24,12 +37,17 @@ export default function Header() {
           />
           <span className="brand-name">ShipTap</span>
         </div>
-        <nav className="header-nav">
-          <a href="#home" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a>
-          <Link href="/about" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</Link>
-          <Link href="/features" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}>Features</Link>
-          <Link href="/contacts" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('contacts'); }}>Contacts</Link>
+        <nav className={`header-nav ${isMenuOpen ? 'open' : ''}`}>
+          <a href="#home" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('home'); closeMenu(); }}>Home</a>
+          <Link href="/about" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('about'); closeMenu(); }}>About</Link>
+          <Link href="/features" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('features'); closeMenu(); }}>Features</Link>
+          <Link href="/contacts" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('contacts'); closeMenu(); }}>Contacts</Link>
         </nav>
+        <button className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
       </div>
     </header>
   );

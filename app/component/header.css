@@ -50,6 +50,42 @@
   transform: translateY(-2px);
 }
 
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 2px solid #4b5563;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 51;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 4px;
+  background: #4b5563;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .header-container {
@@ -71,16 +107,97 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-container {
     padding: 1rem;
   }
 
   .header-nav {
-    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1a1919;
+    border-bottom: 1px solid #e5e7eb;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 40;
+  }
+
+  .header-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-link:hover {
+    background: #f9fafb;
+    transform: none;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .brand-name {
     font-size: 1.25rem;
+  }
+}
+
+/* Tablet/iPad */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .header-nav {
+    gap: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.4rem;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .header-container {
+    padding: 1rem 2rem;
+  }
+
+  .header-nav {
+    gap: 2rem;
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .header-container {
+    padding: 1.25rem 3rem;
+  }
+
+  .header-nav {
+    gap: 2.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.6rem;
   }
 }
