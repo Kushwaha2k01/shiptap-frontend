@@ -1,7 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '../../../lib/mongodb';
 import Wishlist from '../../../lib/models/Wishlist';
-import { sendWishlistEmail } from '../../../lib/email';
+
+export async function GET() {
+  try {
+    // Connect to database
+    await connectToDatabase();
+
+    // Retrieve all wishlist entries
+    const wishlists = await Wishlist.find({}).sort({ createdAt: -1 });
+
+    return NextResponse.json(
+      { wishlists, count: wishlists.length },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Error retrieving wishlists:', error);
+    if (error instanceof Error) {
+      if (error.message.includes('connect')) {
+        return NextResponse.json(
+          { error: 'Database connection failed' },
+          { status: 503 }
+        );
+      }
+    }
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
