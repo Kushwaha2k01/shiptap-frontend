@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['shiptap.in'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'shiptap.in',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   experimental: {
