@@ -101,15 +101,21 @@ const Wishlist: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('/api/wishlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // In a real application, you would send the data to your backend
-      console.log('Wishlist form submitted:', formData);
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', company: '', phone: '', interest: '', message: '', newsletter: false });
-      setProgress(0);
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', company: '', phone: '', interest: '', message: '', newsletter: false });
+        setProgress(0);
+      } else {
+        throw new Error('Failed to submit form');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');

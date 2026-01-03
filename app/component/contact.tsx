@@ -83,14 +83,20 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // In a real application, you would send the data to your backend
-      console.log('Form submitted:', formData);
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to submit form');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
