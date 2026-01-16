@@ -67,13 +67,13 @@ export default function Footer() {
           <div className="footer-section">
             <h4 className="footer-heading">Contact Info</h4>
             <div className="contact-info">
-              <p>Email: contact@shiptap.in</p>
+              <p>Email: shiptapindia@gmail.com</p>
               <p>Address: India</p>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p className="copyright">&copy; 2023 ShipTap. All rights reserved.</p>
+          <p className="copyright">&copy; 2026 ShipTap. All rights reserved.</p>
           <div className="footer-legal">
             <Link href="/privacy" className="footer-legal-link">Privacy Policy</Link>
             <Link href="/terms" className="footer-legal-link">Terms of Service</Link>
